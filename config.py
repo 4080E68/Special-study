@@ -5,7 +5,7 @@ CHANNEL_ACCESS_TOKEN = 'T+ukxbxg90/Ds9xksC53pMDw16nSEIpVQg1XfZ3Qz97PxPYLR6XZLQdJ
 CHANNEL_SECRET = 'a99b23619871030a70f4dccc6c1548fb'
 
 #輸入HEROKU_APP_URL
-HEROKU_APP_URL = 'https://toadlinebot.herokuapp.com/'
+HEROKU_APP_URL = ' https://topiclinebot.herokuapp.com/'
 
 #輸入自己的LINE ID
 USERID = 'U6bfa81c6043950015683f02e49afd2dd'
