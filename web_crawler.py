@@ -42,11 +42,11 @@ def youtube_vedio_parser(keyword):
 
     #======================存取搜尋到的結果的螢幕截圖===========================
     #在static資料夾中建立一個暫存圖片路徑
-    #image_path = './static/tmp/test.png'
+    image_path = './static/tmp/test.png'
     #刷新網頁 => 移除首頁的元素
     driver.refresh()
     #將目前的頁面截圖儲存至暫存圖片路徑
-    #driver.save_screenshot(image_path)
+    driver.save_screenshot(image_path)
     #休息2秒
     time.sleep(2)
 
@@ -116,7 +116,7 @@ def youtube_vedio_parser(keyword):
     #瀏覽器螢幕截圖
     #建立一個隨機4碼的字串，使圖片縮圖瀏覽不會因為讀取同一個url快取而重覆
     random_code = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(4))
-    #message.append(ImageSendMessage(original_content_url=HEROKU_APP_URL + '/static/tmp/test.png?'+random_code,preview_image_url=HEROKU_APP_URL + '/static/tmp/test.png?'+random_code))
+    message.append(ImageSendMessage(original_content_url=HEROKU_APP_URL + '/static/tmp/test.png?'+random_code,preview_image_url=HEROKU_APP_URL + '/static/tmp/test.png?'+random_code))
 
     #回傳搜尋結果的FlexMessage
     message.append(image_carousel('YT搜尋結果',yt_vedio_images,vedio_url_list,yt_title_list,yt_channel_infos_image_urls,yt_channel_infos_names))
