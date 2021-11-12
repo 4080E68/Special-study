@@ -84,7 +84,7 @@ def text_message():
 
     message = TextSendMessage(
         alt_text='aaa',
-        text="查詢其他功能"
+        text="請稍後!查詢中..."
                 )
     return message
 
