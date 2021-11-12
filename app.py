@@ -77,7 +77,7 @@ def handle_message(event):
         keyword = msg.split(',')[1]
         message = youtube_vedio_parser(keyword)
         line_bot_api.reply_message(event.reply_token, message)
-    elif 'aaa' in msg:
+    elif '快速選單' in msg:
         message = text_message()
         line_bot_api.reply_message(event.reply_token, message)
     else:

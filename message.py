@@ -83,8 +83,33 @@ def buttons_message():
 def text_message():
 
     message = TextSendMessage(
-        alt_text='aaa',
-        text="請稍後!查詢中..."
+        alt_text='選購商品',
+        text='請選擇選購商品',
+        quick_reply=QuickReply(
+            items=[
+                QuickReplyButton(
+                    action=MessageAction(
+                        label="CPU", text="CPU")
+                ),
+                QuickReplyButton(
+                    action=MessageAction(
+                        label="GPU", text="GPU")
+                ),
+                QuickReplyButton(
+                    action=MessageAction(
+                        label="主機板", text="主機板")
+                ),
+                QuickReplyButton(
+                    action=MessageAction(
+                        label="滑鼠", text="滑鼠")
+                ),
+                QuickReplyButton(
+                    action=MessageAction(
+                        label="鍵盤", text="鍵盤")
+                ),
+            ]
+
+        )
                 )
     return message
 
