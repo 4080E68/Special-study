@@ -3,7 +3,7 @@ from django.conf import settings
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbidden
 from django.views.decorators.csrf import csrf_exempt
 from func3api.models import Location
-
+import subprocess
 from linebot import LineBotApi, WebhookParser
 from linebot.exceptions import InvalidSignatureError, LineBotApiError
 from linebot.models import *
@@ -12,6 +12,7 @@ from urllib.parse import parse_qsl
 from bs4 import BeautifulSoup
 from abc import ABC, abstractmethod
 import requests
+import web_crawler
 
 line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
 parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
@@ -21,6 +22,7 @@ def callback(request):
     if request.method == 'POST':
         #先設定一個要回傳的message空集合
         message = []
+        keyword = []
         signature = request.META['HTTP_X_LINE_SIGNATURE']
         body = request.body.decode('utf-8')
 
@@ -37,7 +39,6 @@ def callback(request):
 
         for event in events:
             if isinstance(event, MessageEvent):
-                print(event.message.type)
                 if event.message.text == "新竹":
                     # 篩選location資料表中，地區欄位為使用者發送地區的景點資料
                     locations = Location.objects.filter(area=event.message.text)
@@ -63,10 +64,11 @@ def callback(request):
                         event.reply_token,
                         TextSendMessage(text=content)
                     )
-                if event.message.text =="@傳送文字":
+                if event.message.text == "國棟影片":
+                    #web_crawler.youtube_vedio_parser(event.message.text)
                     line_bot_api.reply_message(
                         event.reply_token,
-                        TextSendMessage(text="我是 Linebot，\n您好！")
+                        web_crawler.youtube_vedio_parser(event.message.text)
                         )
                 if event.message.text == "@傳送圖片":
                     line_bot_api.reply_message(
@@ -84,6 +86,39 @@ def callback(request):
                             address='710台南市永康區崑大路195號',
                             latitude=22.99792647872198,  # 緯度
                             longitude=120.25310442615711  # 經度
+                        )
+                    )
+                if event.message.text == "@快速選單":
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(
+                            text='請選擇選購商品',
+                            quick_reply=QuickReply(
+                                items=[
+                                    QuickReplyButton(
+                                        action=MessageAction(
+                                            label="CPU", text="CPU")
+                                    ),
+                                    QuickReplyButton(
+                                        action=MessageAction(
+                                            label="GPU", text="GPU")
+                                    ),
+                                    QuickReplyButton(
+                                        action=MessageAction(
+                                            label="主機板", text="主機板")
+                                    ),
+                                    QuickReplyButton(
+                                        action=MessageAction(
+                                            label="滑鼠", text="滑鼠")
+                                    ),
+                                    QuickReplyButton(
+                                        action=MessageAction(
+                                            label="鍵盤", text="鍵盤")
+                                    ),
+                                ]
+
+                            )
+
                         )
                     )
 
@@ -128,3 +163,4 @@ def callback(request):
 
     else:
         return HttpResponseBadRequest()
+
