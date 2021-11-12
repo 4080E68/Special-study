@@ -46,7 +46,7 @@ def youtube_vedio_parser(keyword):
     #刷新網頁 => 移除首頁的元素
     driver.refresh()
     #將目前的頁面截圖儲存至暫存圖片路徑
-    driver.save_screenshot(image_path)
+    #driver.save_screenshot(image_path)
     #休息2秒
     time.sleep(2)
 
