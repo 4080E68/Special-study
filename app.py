@@ -74,9 +74,11 @@ def handle_message(event):
         message = function_list()
         line_bot_api.reply_message(event.reply_token, message)
     elif 'YT,' in msg:
-        TextSendMessage(text="請稍後!")
         keyword = msg.split(',')[1]
         message = youtube_vedio_parser(keyword)
+        line_bot_api.reply_message(event.reply_token, message)
+    elif 'aaa' in msg:
+        message = text_message()
         line_bot_api.reply_message(event.reply_token, message)
     else:
         message = TextSendMessage(text=msg)

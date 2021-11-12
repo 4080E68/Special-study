@@ -80,6 +80,15 @@ def buttons_message():
     return message
 
 #TemplateSendMessage - ConfirmTemplate(確認介面訊息)
+def text_message():
+
+    message = TextSendMessage(
+        alt_text='aaa',
+        text="查詢其他功能"
+                )
+    return message
+
+
 def Confirm_Template():
 
     message = TemplateSendMessage(
