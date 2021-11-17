@@ -9,14 +9,12 @@ from linebot.exceptions import InvalidSignatureError, LineBotApiError
 from linebot.models import *
 from module import func
 from urllib.parse import parse_qsl
-from bs4 import BeautifulSoup
-from abc import ABC, abstractmethod
 import requests
 import web_crawler
 
 line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
 parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
-
+HEROKU_APP_URL = ' https://topiclinebot.herokuapp.com/'
 
 
 
