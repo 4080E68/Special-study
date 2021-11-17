@@ -17,6 +17,10 @@ import web_crawler
 line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
 parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
 
+
+
+
+
 @csrf_exempt
 def callback(request):
     if request.method == 'POST':
@@ -39,6 +43,7 @@ def callback(request):
 
         for event in events:
             if isinstance(event, MessageEvent):
+                msg = event.message.text
                 if event.message.text == "新竹":
                     # 篩選location資料表中，地區欄位為使用者發送地區的景點資料
                     locations = Location.objects.filter(area=event.message.text)
@@ -64,20 +69,11 @@ def callback(request):
                         event.reply_token,
                         TextSendMessage(text=content)
                     )
-                if event.message.text == "國棟影片":
-                    #web_crawler.youtube_vedio_parser(event.message.text)
-                    line_bot_api.reply_message(
-                        event.reply_token,
-                        web_crawler.youtube_vedio_parser(event.message.text)
-                        )
-                if event.message.text == "@傳送圖片":
-                    line_bot_api.reply_message(
-                        event.reply_token,
-                        ImageSendMessage(
-                            original_content_url="https://i.imgur.com/q67isps.png",
-                            preview_image_url="https://i.imgur.com/q67isps.png"
-                        )
-                    )
+                if 'YT,' in msg:
+                    keyword = msg.split(',')[1]
+                    message = web_crawler.youtube_vedio_parser(keyword)
+                    line_bot_api.reply_message(event.reply_token, message)
+
                 if event.message.text == "@傳送位置":
                     line_bot_api.reply_message(
                         event.reply_token,
@@ -121,6 +117,7 @@ def callback(request):
 
                         )
                     )
+
 
 
                 if event.message.text == "11":
