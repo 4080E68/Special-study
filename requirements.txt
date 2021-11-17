@@ -1,5 +1,0 @@
-line-bot-sdk
-flask
-selenium
-BeautifulSoup4
-liffpy
