@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>電腦設備組裝</title>
+    <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script>
+	function initializeApp(data) {  //初始化LIFF
+		var userid = data.context.userId;  //取得ID
+	}
+
+	function pushMsg(pCPU, PMemory, Ppower, PSSD, Pgpu) {
+		if (pCPU == '' || PMemory == '' || Ppower == '' || PSSD == '' || Pgpu == '') {  //資料檢查
+			alert('每個項目都必須輸入！');
+			return;
+		}
+		var msg = "###";  //回傳訊息字串
+		msg = msg + pCPU + "/";
+		msg = msg + PMemory + "/";
+		msg = msg + Ppower + "/";
+		msg = msg + PSSD + "/";
+		msg = msg + Pgpu;
+		
+		liff.sendMessages([  //推播訊息
+			{ type: 'text',
+			  text: msg
+			}
+		])
+			.then(() => {
+				liff.closeWindow();  //關閉視窗
+			});
+	}
+
+	$(document).ready(function () {
+		liff.init(function (data) {  //初始化LIFF
+			initializeApp(data);
+		});
+		
+		$('#sure').click(function (e) {  //按下確定鈕
+			pushMsg($('#CPU').val(), $('#Memory').val(), $('#power').val(), $('#SSD').val(), $('#gpu').val());
+		});
+	});
+</script>
+</head>
+<body>
+    <div class="row" style="margin: 10px">
+        <div class="col-12" style="margin: 10px">
+			<label for="CPU" class="form-label">CPU</label>
+			<input class="form-control" list="datalistOptions" id="CPU" placeholder="請輸入CPU">
+			<datalist id="datalistOptions">
+				<option value="San Francisco">
+				<option value="New York">
+				<option value="Seattle">
+				<option value="Los Angeles">
+				<option value="Chicago">
+			</datalist>
+			<br />
+			<label for="Memory" class="form-label">記憶體</label>
+			<input class="form-control" list="datalistOptions" id="Memory" placeholder="請輸入記憶體">
+			<datalist id="datalistOptions">
+				<option value="San Francisco">
+				<option value="New York">
+				<option value="Seattle">
+				<option value="Los Angeles">
+				<option value="Chicago">
+			</datalist>
+			<br />
+			<label for="gpu" class="form-label">顯示卡</label>
+			<input class="form-control" list="datalistOptions" id="gpu" placeholder="請輸入顯示卡">
+			<datalist id="datalistOptions">
+				<option value="San Francisco">
+				<option value="New York">
+				<option value="Seattle">
+				<option value="Los Angeles">
+				<option value="Chicago">
+			</datalist>
+			<br />
+			<label for="power" class="form-label">電源供應器</label>
+			<input class="form-control" list="datalistOptions" id="power" placeholder="請輸入電源供應器">
+			<datalist id="datalistOptions">
+				<option value="San Francisco">
+				<option value="New York">
+				<option value="Seattle">
+				<option value="Los Angeles">
+				<option value="Chicago">
+			</datalist>
+			<br />
+			<label for="SSD" class="form-label">固態硬碟</label>
+			<input class="form-control" list="datalistOptions" id="SSD" placeholder="請輸入SSD">
+			<datalist id="datalistOptions">
+				<option value="San Francisco">
+				<option value="New York">
+				<option value="Seattle">
+				<option value="Los Angeles">
+				<option value="Chicago">
+			</datalist>
+			<br />
+			
+			
+            <button class="btn btn-success btn-block" id="sure">確定</button>
+			</div>
+        </div>
+    </div>
+</body>
+</html>
