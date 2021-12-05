@@ -24,7 +24,7 @@
 		msg = msg + Ppower + "/";
 		msg = msg + PSSD + "/";
 		msg = msg + Pgpu;
-		
+
 		liff.sendMessages([  //推播訊息
 			{ type: 'text',
 			  text: msg
@@ -50,57 +50,58 @@
     <div class="row" style="margin: 10px">
         <div class="col-12" style="margin: 10px">
 			<label for="CPU" class="form-label">CPU</label>
-			<input class="form-control" list="datalistOptions" id="CPU" placeholder="請輸入CPU">
-			<datalist id="datalistOptions">
-				<option value="San Francisco">
-				<option value="New York">
-				<option value="Seattle">
-				<option value="Los Angeles">
-				<option value="Chicago">
+			<input class="form-control" list="datalist1" id="CPU" placeholder="請輸入CPU">
+			<datalist id="datalist1">
+				<option value="Intel Core i9-12900K">
+				<option value="Intel Core i5-11400F">
+				<option value="AMD Ryzen 9-5950X 3.4GHz 16核心 中央處理器">
+				<option value="AMD Ryzen 7-5700G 3.8GHz 八核心 中央處理器">
+				<option value="AMD Ryzen 5-5600X 3.7GHz 6核心 中央處理器">
 			</datalist>
 			<br />
 			<label for="Memory" class="form-label">記憶體</label>
-			<input class="form-control" list="datalistOptions" id="Memory" placeholder="請輸入記憶體">
-			<datalist id="datalistOptions">
-				<option value="San Francisco">
-				<option value="New York">
-				<option value="Seattle">
-				<option value="Los Angeles">
-				<option value="Chicago">
-			</datalist>
-			<br />
-			<label for="gpu" class="form-label">顯示卡</label>
-			<input class="form-control" list="datalistOptions" id="gpu" placeholder="請輸入顯示卡">
-			<datalist id="datalistOptions">
-				<option value="San Francisco">
-				<option value="New York">
-				<option value="Seattle">
-				<option value="Los Angeles">
-				<option value="Chicago">
+			<input class="form-control" list="datalist2" id="Memory" placeholder="請輸入記憶體">
+			<datalist id="datalist2">
+				<option value="Corsair 海盜船 VENGEANCE® LPX DDR4 3200 16GB (8Gx2) 桌上型記憶體(CMK16GX4M2E3200C16)">
+				<option value="KLEVV 科賦 CRAS XR RGB DDR4 4000 16GB(8Gx2) 桌上型 超頻/電競記憶體">
+				<option value="ADATA 威剛 DDR4 2666 8GB 桌上型記憶體(AD4U266638G19-S)">
+				<option value="TEAM 十銓 T-CREATE 創作者 CLASSIC 10L DDR4 3200 16GB(8G*2) CL22 桌上型記憶體">
+				<option value="v-color全何SCC套件DDR4 3200 32GB(16GBX2)">
 			</datalist>
 			<br />
 			<label for="power" class="form-label">電源供應器</label>
 			<input class="form-control" list="datalistOptions" id="power" placeholder="請輸入電源供應器">
 			<datalist id="datalistOptions">
-				<option value="San Francisco">
-				<option value="New York">
-				<option value="Seattle">
-				<option value="Los Angeles">
-				<option value="Chicago">
+				<option value="Thermaltake 曜越 鋼影 Toughpower GF2 ARGB 850W 金牌認證電源">
+				<option value="銀欣 1000W 80 PLUS白金認證超高效率電源供應器 ST1000-PTS">
+				<option value="Xigmatek CAPTAIN 400W 80+銅牌 電源供應器">
+				<option value="海韻 FOCUS 550w 金牌 半模組 電源供應器 GM-550">
+				<option value="NZXT美商恩傑 C650 金牌 650W 全日系電容 全模組靜音電源供應器 NP-C650M-TW">
 			</datalist>
 			<br />
+			
 			<label for="SSD" class="form-label">固態硬碟</label>
 			<input class="form-control" list="datalistOptions" id="SSD" placeholder="請輸入SSD">
 			<datalist id="datalistOptions">
-				<option value="San Francisco">
-				<option value="New York">
-				<option value="Seattle">
-				<option value="Los Angeles">
-				<option value="Chicago">
+				<option value="SAMSUNG 三星 980 PRO 2TB NVMe M.2 2280 PCIe 固態硬碟 (MZ-V8P2T0BW)">
+				<option value="美光Micron Crucial MX500 1TB SATAⅢ 固態硬碟">
+				<option value="CORSAIR海盜船 Force Series MP600 500GB Gen4x4 PCIe SSD固態硬碟">
+				<option value="【Transcend 創見】512GB MTE110S M.2 2280 PCIe Gen3x4 SSD固態硬碟(雙面打件)">
+				<option value="Seagate【FireCuda 520】2TB M.2 2280 PCIE SSD(ZP2000GM3A002)">
 			</datalist>
 			<br />
 			
-			
+			<label for="gpu" class="form-label">顯示卡</label>
+			<input class="form-control" list="datalistOptions" id="gpu" placeholder="請輸入顯示卡">
+			<datalist id="datalistOptions">
+				<option value="微星MSI GeForce RTX 3090 24G GAMING X TRIO PCI-E顯示卡">
+				<option value="【ASUS華碩組】STRIX-RTX3080TI-12G-GAMING+X570-E+B560-A+AC1200+12D2HT">
+				<option value="【ASUS華碩組】STRIX-RTX3070TI-O8G-GAMING+X570-F+B560-G+RT-AX82U">
+				<option value="技嘉AORUS Radeon RX 6900 XT XTREME WATERFORCE WB 16G 顯示卡">
+				<option value="微星 GeForce RTX 3080 SUPRIM X 10G LHR 顯示卡+H510M BOMBER+P240 水冷">
+			</datalist>
+			<br />
+
             <button class="btn btn-success btn-block" id="sure">確定</button>
 			</div>
         </div>
