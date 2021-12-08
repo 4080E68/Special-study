@@ -15,7 +15,7 @@
 
 	function pushMsg(pCPU, PMemory, Ppower, PSSD, Pgpu) {
 		if (pCPU == '' || PMemory == '' || Ppower == '' || PSSD == '' || Pgpu == '') {  //資料檢查
-			alert('每個項目都必須輸入！');
+			alert('每個項目都必須選擇！');
 			return;
 		}
 		var msg = "###";  //回傳訊息字串
@@ -51,94 +51,95 @@
     <div class="row" style="margin: 10px">
 		
         <div class="col-12" style="margin: 10px">
-			<label for="CPU" >CPU</label>
-			<input class="form-control" list="datalist1" id="CPU" placeholder="請輸入CPU">
-			<datalist id="datalist1">
-				<option value="Intel Core i9-12900K">
-				<option value="Intel Core i5-11400F">
-				<option value="AMD Ryzen 9-5950X 3.4GHz 16核心 中央處理器">
-				<option value="AMD Ryzen 7-5700G 3.8GHz 八核心 中央處理器">
-				<option value="AMD Ryzen 5-5600X 3.7GHz 6核心 中央處理器">
-			</datalist>
+			
+			<label for="SSD" class="form-label">CPU</label>
+			<select class="custom-select custom-select-lg mb-3" id="CPU">
+				<optgroup label="Intel">
+					<option selected>請選擇CPU</option>
+					<option value="1">Intel Core i5-11400F</option>
+					<option value="2">Intel Core i9-12900K</option>
+					<option value="3">Intel Core i7-12700K</option>
+				</optgroup>
+				<optgroup label="AMD">
+					<option value="1">AMD Ryzen 9-5950X 3.4GHz 16核心 中央處理器</option>
+					<option value="2">AMD Ryzen 7-5700G 3.8GHz 八核心 中央處理器</option>
+					<option value="3">AMD Ryzen 5-5600X 3.7GHz 6核心 中央處理器</option>
+				</optgroup>
+			</select>
 			<br />
 			
-			<label for="Memory" class="form-label">記憶體</label>
-			<input class="form-control" list="datalist2" id="Memory" placeholder="請輸入記憶體">
-			<datalist id="datalist2">
-				<option value="Corsair 海盜船 VENGEANCE® LPX DDR4 3200 16GB (8Gx2) 桌上型記憶體(CMK16GX4M2E3200C16)">
-				<option value="KLEVV 科賦 CRAS XR RGB DDR4 4000 16GB(8Gx2) 桌上型 超頻/電競記憶體">
-				<option value="ADATA 威剛 DDR4 2666 8GB 桌上型記憶體(AD4U266638G19-S)">
-				<option value="TEAM 十銓 T-CREATE 創作者 CLASSIC 10L DDR4 3200 16GB(8G*2) CL22 桌上型記憶體">
-				<option value="v-color全何SCC套件DDR4 3200 32GB(16GBX2)">
-			</datalist>
-			<br />
-		
-			<label for="power" class="form-label">電源供應器</label>
-			<input class="form-control" list="datalist3" id="power" placeholder="請輸入電源供應器">
-			<datalist id="datalist3">
-				<option value="Thermaltake 曜越 鋼影 Toughpower GF2 ARGB 850W 金牌認證電源">
-				<option value="銀欣 1000W 80 PLUS白金認證超高效率電源供應器 ST1000-PTS">
-				<option value="Xigmatek CAPTAIN 400W 80+銅牌 電源供應器">
-				<option value="海韻 FOCUS 550w 金牌 半模組 電源供應器 GM-550">
-				<option value="NZXT美商恩傑 C650 金牌 650W 全日系電容 全模組靜音電源供應器 NP-C650M-TW">
-			</datalist>
+			<label for="SSD" class="form-label">記憶體</label>
+			<select class="custom-select custom-select-lg mb-3" id="Memory">
+				<optgroup label="Corsair 海盜船">
+					<option selected>請選擇記憶體</option>
+					<option value="1">Corsair 海盜船 VENGEANCE® RGB PRO DDR4 3200 32GB(16Gx2)桌上型記憶體-黑色</option>
+					<option value="2">Corsair 海盜船 VENGEANCE RGB PRO SL DDR4 3600 32GB(16Gx2)桌上型記憶體-黑色</option>
+					<option value="3">Corsair 海盜船 VENGEANCE® LPX DDR4 2666 8GB 桌上型記憶體</option>
+				</optgroup>
+				<optgroup label="ADATA 威剛">
+					<option value="1">威剛 XPG DDR4 3200 8GB*2 RGB 幾何幻光桌上型記憶體(迷戀白)</option>
+					<option value="2">威剛 XPG DDR4- 3200 D50 (RGB) 16GB*2 超頻桌上型記憶體(AX4U3200716G16A-DT50)</option>
+					<option value="3">威剛 XPG DDR4 3200 D10 16GB*2 超頻桌上型記憶體 (黑色散熱片)</option>
+				</optgroup>
+				<optgroup label="ANACOMDA 巨蟒">
+					<option value="1">ANACOMDA 巨蟒 DDR4 3200 16GB 超頻桌上型記憶體</option>
+					<option value="2">ANACOMDA 巨蟒 RGB DDR4 3200 8GB*2桌上記憶體(黑)</option>
+					
+				</optgroup>
+			</select>
 			<br />
 			
+			<label for="SSD" class="form-label">電源供應器</label>
+			<select class="custom-select custom-select-lg mb-3" id="power">
+				<optgroup label="ASUS 華碩">
+					<option selected>請選擇電源供應器</option>
+					<option value="1">ASUS 華碩 ROG STRIX 750G 750W金牌 電源供應器</option>
+					<option value="2">ASUS 華碩 ROG STRIX 850G 850W White 白色限量版 金牌 電源供應器</option>
+					<option value="3">ASUS 華碩 ROG STRIX 850G 850W 金牌 電源供應器</option>
+				</optgroup>
+				<optgroup label="CORSAIR海盜船">
+					<option value="1">CORSAIR海盜船 RM1000X 80Plus金牌 1000W電源供應器</option>
+					<option value="2">CORSAIR海盜船 CX650F RGB 80Plus銅牌 全模組電源供應器 CP-9020226-TW</option>
+					<option value="3">Corsair海盜船 CV650 80Plus銅牌認證 650W電源供應器</option>
+				</optgroup>
+			</select>
+			<br />
+
 			<label for="SSD" class="form-label">固態硬碟</label>
-			<input class="form-control" list="datalist4" id="SSD" placeholder="請輸入SSD">
-			<datalist id="datalist4">
-				<option value="SAMSUNG 三星 980 PRO 2TB NVMe M.2 2280 PCIe 固態硬碟 (MZ-V8P2T0BW)">
-				<option value="美光Micron Crucial MX500 1TB SATAⅢ 固態硬碟">
-				<option value="CORSAIR海盜船 Force Series MP600 500GB Gen4x4 PCIe SSD固態硬碟">
-				<option value="【Transcend 創見】512GB MTE110S M.2 2280 PCIe Gen3x4 SSD固態硬碟(雙面打件)">
-				<option value="Seagate【FireCuda 520】2TB M.2 2280 PCIE SSD(ZP2000GM3A002)">
-				<option value="SAMSUNG 三星 980 PRO 2TB NVMe M.2 2280 PCIe 固態硬碟 (MZ-V8P2T0BW)">
-				<option value="美光Micron Crucial MX500 1TB SATAⅢ 固態硬碟">
-				<option value="CORSAIR海盜船 Force Series MP600 500GB Gen4x4 PCIe SSD固態硬碟">
-				<option value="【Transcend 創見】512GB MTE110S M.2 2280 PCIe Gen3x4 SSD固態硬碟(雙面打件)">
-				<option value="Seagate【FireCuda 520】2TB M.2 2280 PCIE SSD(ZP2000GM3A002)">
-				<option value="SAMSUNG 三星 980 PRO 2TB NVMe M.2 2280 PCIe 固態硬碟 (MZ-V8P2T0BW)">
-				<option value="美光Micron Crucial MX500 1TB SATAⅢ 固態硬碟">
-				<option value="CORSAIR海盜船 Force Series MP600 500GB Gen4x4 PCIe SSD固態硬碟">
-				<option value="【Transcend 創見】512GB MTE110S M.2 2280 PCIe Gen3x4 SSD固態硬碟(雙面打件)">
-				<option value="Seagate【FireCuda 520】2TB M.2 2280 PCIE SSD(ZP2000GM3A002)">
-				<option value="SAMSUNG 三星 980 PRO 2TB NVMe M.2 2280 PCIe 固態硬碟 (MZ-V8P2T0BW)">
-				<option value="美光Micron Crucial MX500 1TB SATAⅢ 固態硬碟">
-				<option value="CORSAIR海盜船 Force Series MP600 500GB Gen4x4 PCIe SSD固態硬碟">
-				<option value="【Transcend 創見】512GB MTE110S M.2 2280 PCIe Gen3x4 SSD固態硬碟(雙面打件)">
-				<option value="Seagate【FireCuda 520】2TB M.2 2280 PCIE SSD(ZP2000GM3A002)">
-				<option value="SAMSUNG 三星 980 PRO 2TB NVMe M.2 2280 PCIe 固態硬碟 (MZ-V8P2T0BW)">
-				<option value="美光Micron Crucial MX500 1TB SATAⅢ 固態硬碟">
-				<option value="CORSAIR海盜船 Force Series MP600 500GB Gen4x4 PCIe SSD固態硬碟">
-				<option value="【Transcend 創見】512GB MTE110S M.2 2280 PCIe Gen3x4 SSD固態硬碟(雙面打件)">
-				<option value="Seagate【FireCuda 520】2TB M.2 2280 PCIE SSD(ZP2000GM3A002)">
-				<option value="SAMSUNG 三星 980 PRO 2TB NVMe M.2 2280 PCIe 固態硬碟 (MZ-V8P2T0BW)">
-				<option value="美光Micron Crucial MX500 1TB SATAⅢ 固態硬碟">
-				<option value="CORSAIR海盜船 Force Series MP600 500GB Gen4x4 PCIe SSD固態硬碟">
-				<option value="【Transcend 創見】512GB MTE110S M.2 2280 PCIe Gen3x4 SSD固態硬碟(雙面打件)">
-				<option value="Seagate【FireCuda 520】2TB M.2 2280 PCIE SSD(ZP2000GM3A002)">
-			</datalist>
+			<select class="custom-select custom-select-lg mb-3" id="SSD">
+				<optgroup label="ADATA威剛">
+					<option selected>請選擇固態硬碟</option>
+					<option value="1">ADATA威剛XPG GAMMIX S70 BLADE 1TB Gen4x4 PCIe SSD固態硬碟</option>
+					<option value="2">ADATA威剛XPG GAMMIX S70 BLADE 2TB Gen4x4 PCIe SSD固態硬碟</option>
+					<option value="3">ADATA威剛 XPG S40G RGB 512G M.2 2280 PCIe SSD固態硬碟</option>
+				</optgroup>
+				<optgroup label="CORSAIR海盜船">
+					<option value="1">CORSAIR海盜船 Force Series MP600 500GB Gen4x4 PCIe SSD固態硬碟</option>
+					<option value="2">CORSAIR海盜船 MP400 2TB Gen3x4 PCIe SSD固態硬碟(CSSD-F2000GBMP400R2)</option>
+					<option value="3">CORSAIR海盜船 MP600 Core 2TB Gen4x4 PCIe SSD固態硬碟</option>
+				</optgroup>
+			</select>
 			<br />
 			
 			<label for="gpu" class="form-label">顯示卡</label>
 			<select class="custom-select custom-select-lg mb-3" id="gpu" >
-				<optgroup label="Cats">
-					<option selected>請輸入顯示卡</option>
-					<option value="1">One</option>
-					<option value="2">Two</option>
-					<option value="3">Three</option>
+				<optgroup label="NVIDIA">
+					<option selected>請選擇顯示卡</option>
+					<option value="1">NVIDIA GeForce RTX 3080 Founders Edition 顯示卡</option>
+				</optgroup>
+				<optgroup label="MSI 微星">
+					<option value="1">微星 GeForce RTX 3080 SUPRIM X 10G LHR 顯示卡+H510M BOMBER+P240 水冷</option>
+					<option value="2">微星MSI GeForce RTX 3060 Ti 8G VENTUS 2X OC PCI-E顯示卡</option>
+				</optgroup>
+				<optgroup label="GIGABYTE 技嘉">
+					<option value="1">技嘉 GeForce RTX™ 3070 GAMING OC 8G (rev. 2.0) 顯示卡+X570S+B560M</option>
+					<option value="2">技嘉AORUS Radeon RX 6900 XT XTREME WATERFORCE WB 16G 顯示卡</option>
+					<option value="3">技嘉 GeForce RTX 3070 GAMING OC 8G (rev. 2.0) 顯示卡+X570S AORUS ELITE AX</option>
 				</optgroup>
 			</select>
 			<br />
 			
-			<select class="custom-select custom-select-lg mb-3">
-				<optgroup label="Cats">
-				<option selected>Open this select menu</option>
-				<option value="1">One</option>
-				<option value="2">Two</option>
-				<option value="3">Three</option>
-				</optgroup>
-			</select>
+			
 			
             <button class="btn btn-success btn-block" id="sure">確定</button>
 			</div>
