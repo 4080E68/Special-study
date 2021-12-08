@@ -121,14 +121,14 @@
 			<br />
 			
 			<label for="gpu" class="form-label">顯示卡</label>
-			<input class="form-control" list="datalist5" id="gpu" placeholder="請輸入顯示卡">
-			<datalist id="datalist5">
-				<option value="微星MSI GeForce RTX 3090 24G GAMING X TRIO PCI-E顯示卡">
-				<option value="【ASUS華碩組】STRIX-RTX3080TI-12G-GAMING+X570-E+B560-A+AC1200+12D2HT">
-				<option value="【ASUS華碩組】STRIX-RTX3070TI-O8G-GAMING+X570-F+B560-G+RT-AX82U">
-				<option value="技嘉AORUS Radeon RX 6900 XT XTREME WATERFORCE WB 16G 顯示卡">
-				<option value="微星 GeForce RTX 3080 SUPRIM X 10G LHR 顯示卡+H510M BOMBER+P240 水冷">
-			</datalist>
+			<select class="custom-select custom-select-lg mb-3" id="gpu" >
+				<optgroup label="Cats">
+					<option selected>請輸入顯示卡</option>
+					<option value="1">One</option>
+					<option value="2">Two</option>
+					<option value="3">Three</option>
+				</optgroup>
+			</select>
 			<br />
 			
 			<select class="custom-select custom-select-lg mb-3">
@@ -139,28 +139,7 @@
 				<option value="3">Three</option>
 				</optgroup>
 			</select>
-			<br />
-			<select class="custom-select custom-select-lg mb-3">
-				<optgroup label="Cats">
-					<option selected>Open this select menu</option>
-					<option value="1">One</option>
-					<option value="2">Two</option>
-					<option value="3">Three</option>
-				</optgroup>
-			</select>
-			<br />
-			<select class="custom-select custom-select-lg mb-3">
-				<optgroup label="Cats">
-					<option selected>Open this select menu</option>
-					<option value="1">One</option>
-					<option value="2">Two</option>
-					<option value="3">Three</option>
-				</optgroup>
-			</select>
-			<br />
 			
-			
-
             <button class="btn btn-success btn-block" id="sure">確定</button>
 			</div>
         </div>
