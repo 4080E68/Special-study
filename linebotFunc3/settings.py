@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'func3api',
+    'func3api'
+    
 ]
 
 MIDDLEWARE = [
@@ -78,12 +79,12 @@ WSGI_APPLICATION = 'linebotFunc3.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',  # PostgreSQL
+        'ENGINE': 'django.db.backends.mysql',  
         'NAME': 'test',  # 資料庫名稱
-        'USER': 'postgres',  # 資料庫帳號
+        'USER': 'root',  # 資料庫帳號
         'PASSWORD': '0000',  # 資料庫密碼
         'HOST': 'localhost',  # Server(伺服器)位址
-        'PORT': '5432'  # PostgreSQL Port號
+        'PORT': '3306'  # Port號
     }
 }
 
@@ -125,6 +126,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [  #加入 static 路徑
-	os.path.join(BASE_DIR, 'static'),
-]
+STATICFILES_DIRS = [ os.path.join(BASE_DIR,'static')]

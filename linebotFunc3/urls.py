@@ -20,5 +20,10 @@ from func3api import views
 
 urlpatterns = [
     url('^callback', views.callback),
+    url('^listone/$',views.listone),
+    url('^listall/$', views.listall),
+    url('^$',views.index),
+    url('^ssd/$', views.ssd),
+    url('^cpu/$', views.cpu),
     path('admin/', admin.site.urls),
 ]
