@@ -1,0 +1,86 @@
+body{
+    background-image:url('https://static.runoob.com/images/mix/paper.gif');
+    background-color:#cccccc;
+}
+.center{
+    text-align: center;
+
+}
+.h1{
+    color:red;
+    margin: 10px;
+    padding: 10px;
+    padding-right:0%;
+    font-size: 40px;
+	font-weight:bolder;
+	position: relative;
+}
+.searcht{
+   position:relative;
+    right:0px;
+    font-size: 20px;
+}
+ul {
+	display: flex;
+	justify-content: space-around;
+	background-color:black;
+	list-style: none;
+	margin: 10px;
+    padding: 5px;
+	font-family:Microsoft JhengHei;
+	font-weight:bolder;
+	font-size:20px;   
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 20px 20px;
+    text-decoration: none;
+	font-weight:1000;
+}
+
+li a:hover {
+    background-color:rebeccapurple;
+}
+.but{
+	display: flex;
+	position: absolute;
+	font-weight: bold;
+    top: 0px;
+    right : 0px;
+}
+table{
+	padding:10px;
+
+}
+th{
+	font-size:1cm;
+	
+}
+.pron_name{
+	font-size: 20px;
+	color:blue;
+}
+.nick{
+	line-height:1;
+	font-size:18px;
+}
+.Price{
+	font-size: 20px;
+}
+.cm{
+	padding:10px;
+	float:left;
+}
+.cmr{
+	padding:10px;
+	float:left;
+}.cmrr{
+	padding:10px;
+	float:left;
+}
+
+
+

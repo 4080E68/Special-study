@@ -146,8 +146,8 @@ https://github.com/heroku/heroku-buildpack-chromedriver
 
     #建立頻道資訊列表(頻道名稱)
     yt_channel_infos_names = []
-    yt_channel_infos_name_list = driver.find_elements_by_css_selector('#channel-info ytd-channel-name div#container div#text-container yt-formatted-string a')
-    for infos in yt_channel_infos_name_list:
+    Commodity_web = driver.find_elements_by_css_selector('#channel-info ytd-channel-name div#container div#text-container yt-formatted-string a')
+    for infos in Commodity_web:
         yt_channel_infos_names.append(infos.text)
 
     #關閉瀏覽器連線

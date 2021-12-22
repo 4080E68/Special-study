@@ -60,153 +60,19 @@ def sendConfirm(event):  #確認樣板
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
-def sendCarousel(event):  #轉盤樣板
-    try:
-        message = TemplateSendMessage(
-            alt_text='轉盤樣板',
-            template=CarouselTemplate(
-                columns=[
-                    CarouselColumn(
-                        thumbnail_image_url='https://i.imgur.com/4QfKuz1.png',
-                        title='這是樣板一',
-                        text='第一個轉盤樣板',
-                        actions=[
-                            MessageTemplateAction(
-                                label='文字訊息一',
-                                text='賣披薩'
-                            ),
-                            URITemplateAction(
-                                label='連結文淵閣網頁',
-                                uri='http://www.e-happy.com.tw'
-                            ),
-                            PostbackTemplateAction(
-                                label='回傳訊息一',
-                                data='action=sell&item=披薩'
-                            ),
-                        ]
-                    ),
-                    CarouselColumn(
-                        thumbnail_image_url='https://i.imgur.com/qaAdBkR.png',
-                        title='這是樣板二',
-                        text='第二個轉盤樣板',
-                        actions=[
-                            MessageTemplateAction(
-                                label='文字訊息二',
-                                text='賣飲料'
-                            ),
-                            URITemplateAction(
-                                label='連結台大網頁',
-                                uri='http://www.ntu.edu.tw'
-                            ),
-                            PostbackTemplateAction(
-                                label='回傳訊息二',
-                                data='action=sell&item=飲料'
-                            ),
-                        ]
-                    )
-                ]
-            )
-        )
-        line_bot_api.reply_message(event.reply_token,message)
-    except:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
-def sendImgCarousel(event):  #圖片轉盤
+def manageForm(event, mtext):#liff表單
     try:
-        message = TemplateSendMessage(
-            alt_text='圖片轉盤樣板',
-            template=ImageCarouselTemplate(
-                columns=[
-                    ImageCarouselColumn(
-                        image_url='https://i.imgur.com/4QfKuz1.png',
-                        action=MessageTemplateAction(
-                            label='文字訊息',
-                            text='賣披薩'
-                        )
-                    ),
-                    ImageCarouselColumn(
-                        image_url='https://i.imgur.com/qaAdBkR.png',
-                        action=PostbackTemplateAction(
-                            label='回傳訊息',
-                            data='action=sell&item=飲料'
-                        )
-                    )
-                ]
-            )
-        )
-        line_bot_api.reply_message(event.reply_token,message)
-    except:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
-
-def sendPizza(event):
-    try:
+        flist = mtext[3:].split('/')
+        text1 = 'CPU：' + flist[0] + '\n'
+        text1 += '記憶體：' + flist[1] + '\n'
+        text1 += '電源供應器：' + flist[2] + '\n'
+        text1 += '固態硬碟：' + flist[3] + '\n'
+        text1 += '顯示卡：' + flist[4]
         message = TextSendMessage(
-            text = '感謝您購買披薩，我們將盡快為您製作。'
+            text=text1
         )
-        line_bot_api.reply_message(event.reply_token, message)
-    except:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
-def sendYes(event):
-    try:
-        message = TextSendMessage(
-            text='感謝您的購買，\n我們將盡快寄出商品。',
-        )
-        line_bot_api.reply_message(event.reply_token, message)
-    except:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
-
-def sendBack_buy(event, backdata):  #處理Postback
-    try:
-        text1 = '感謝您購買披薩，我們將盡快為您製作。\n(action 的值為 ' + backdata.get('action') + ')'
-        text1 += '\n(可將處理程式寫在此處。)'
-        message = TextSendMessage(  #傳送文字
-            text = "點選的是買"+backdata.get('item')
-            
-        )
-        line_bot_api.reply_message(event.reply_token, message)
-    except:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
-
-def sendBack_sell(event, backdata):  #處理Postback
-    try:
-        message = TextSendMessage(  #傳送文字
-            text = '點選的是賣 ' + backdata.get('item')
-        )
-        line_bot_api.reply_message(event.reply_token, message)
-    except:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
-
-
-
-
-def sendStick(event):  # 傳送貼圖
-    try:
-        message = StickerSendMessage(  # 貼圖兩個id需查表
-            package_id='1',
-            sticker_id='2'
-        )
-        line_bot_api.reply_message(event.reply_token, message)
-    except:
-        line_bot_api.reply_message(
-            event.reply_token, TextSendMessage(text='發生錯誤！'))
-
-
-def sendMulti(event):  # 多項傳送
-    try:
-        message = [  # 串列
-            StickerSendMessage(  # 傳送貼圖
-                package_id='1',
-                sticker_id='2'
-            ),
-            TextSendMessage(  # 傳送y文字
-                text="這是 Pizza 圖片！"
-            ),
-            ImageSendMessage(  # 傳送圖片
-                original_content_url="https://i.imgur.com/4QfKuz1.png",
-                preview_image_url="https://i.imgur.com/4QfKuz1.png"
-            )
-        ]
         line_bot_api.reply_message(event.reply_token, message)
     except:
         line_bot_api.reply_message(
