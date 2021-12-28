@@ -1,5 +1,5 @@
 from django.conf import settings
-from func3api.models import Location
+from func3api.models import *
 
 from linebot import LineBotApi
 from linebot.models import DatetimePickerTemplateAction,LocationSendMessage, MessageAction, QuickReplyButton, QuickReply, StickerSendMessage, TextSendMessage, TemplateSendMessage, ConfirmTemplate, MessageTemplateAction, ButtonsTemplate, PostbackTemplateAction, URITemplateAction, CarouselTemplate, CarouselColumn, ImageCarouselTemplate, ImageCarouselColumn, ImageSendMessage

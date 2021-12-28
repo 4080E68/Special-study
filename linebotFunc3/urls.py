@@ -19,11 +19,14 @@ from django.conf.urls import url
 from func3api import views
 
 urlpatterns = [
+    url('^post/$',views.post),
     url('^callback', views.callback),
     url('^listone/$',views.listone),
     url('^listall/$', views.listall),
     url('^$',views.index),
     url('^ssd/$', views.ssd),
     url('^cpu/$', views.cpu),
+    url('^php/$', views.php),
+    url('^html/$', views.html),
     path('admin/', admin.site.urls),
 ]

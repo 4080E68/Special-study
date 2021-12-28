@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'linebotFunc3.urls'
@@ -80,9 +80,9 @@ WSGI_APPLICATION = 'linebotFunc3.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  
-        'NAME': 'test',  # 資料庫名稱
+        'NAME': '1228test',  # 資料庫名稱
         'USER': 'root',  # 資料庫帳號
-        'PASSWORD': '0000',  # 資料庫密碼
+        'PASSWORD': '',  # 資料庫密碼
         'HOST': 'localhost',  # Server(伺服器)位址
         'PORT': '3306'  # Port號
     }

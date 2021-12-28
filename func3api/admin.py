@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from func3api.models import *
 
-admin.site.register(Location)
+admin.site.register(cpu)
 
 
 class displayAdmin(admin.ModelAdmin):

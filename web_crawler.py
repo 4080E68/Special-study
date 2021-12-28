@@ -15,15 +15,14 @@ def youtube_vedio_parser(keyword):
     connection = mysql.connector.connect(host='localhost',
                                          port='3306',
                                          user='root',
-                                         password='0000',
-                                         database='test',)
-
+                                         password='',
+                                         database='1228',)
 
     cursor = connection.cursor()
     try:
 
         #建立url跟目錄
-        url = 'https://24h.pchome.com.tw/'
+        url = 'https://ecshweb.pchome.com.tw/search/v3.3/?q=AMD&scope=all&sortParm=sale&sortOrder=dc&cateId=DRAI'
         #開啟Chrome瀏覽器
         #driver = webdriver.Chrome(options=chromeOption)
         driver = webdriver.Chrome()
@@ -33,22 +32,22 @@ def youtube_vedio_parser(keyword):
         #進入指定網址
         driver.get(url)
         #定義一個物件，以name標籤找到youtube的關鍵字搜尋欄位
-        search_vedio = driver.find_element_by_id('keyword')
+        """search_vedio = driver.find_element_by_id('keyword')
         #將關鍵字文字送入搜尋欄位
-        search_vedio.send_keys(keyword)
+        search_vedio.send_keys(keyword)"""
         time.sleep(1)
 
         #按下輸入搜尋按鈕
     #    search_vedio.send_keys(Keys.RETURN)
-        search_button = driver.find_element_by_id('doSearch')
-        search_button.click()
+        """search_button = driver.find_element_by_id('doSearch')
+        search_button.click()"""
         #等待網頁讀取
 
         time.sleep(2)
         driver.refresh()  # 刷新網頁
 
         #滾動視窗捲軸，使瀏覽器獲取影片縮圖資訊
-        for i in range(200):
+        for i in range(130):
             y_position = i*200
             driver.execute_script(f'window.scrollTo(0, {y_position});')
             time.sleep(0.1)
@@ -117,14 +116,14 @@ def youtube_vedio_parser(keyword):
         print("標題長度", len(pc_title_list))
 
 
-        """for i in range(11):
+        for i in range(101):
             try:
-                sql = 'INSERT INTO `test`.`1211_test` (`id`,`name`, `price`, `Commodity`, `url_list`, `pc_images`) VALUES (%s,%s, %s, %s, %s, %s);'
+                sql = 'INSERT INTO `1228test`.`func3api_cpu` (`id`,`name`, `price`, `Commodity`, `url_list`, `pc_images`,`vendor`) VALUES (%s,%s, %s, %s, %s, %s, %s);'
                 cursor.execute(
-                    sql, (i+1,pc_title_list[i], price_list[i], Commodity_list[i], pc_url_list[i], pc_images[i]))
+                    sql, (i+100, pc_title_list[i], price_list[i], Commodity_list[i], pc_url_list[i], pc_images[i],"AMD"))
                 connection.commit()
             except:
-                connection.rollback()"""
+                connection.rollback()
         driver.close()
         #=====================================================================
         message = []

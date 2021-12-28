@@ -20,19 +20,13 @@ HEROKU_APP_URL = ' https://topiclinebot.herokuapp.com/'
 
 
 def listone(request):
-    try:
-        unit = display.objects.get(price=21900)
-    except:
-        errorMessage = "(讀取錯誤!)"
+    unit = display.objects.get(id=8)
     return render(request,'listone.html',locals())
 
-
 def listall(request):
-    try:
-        unit = display.objects.get(id=3)
-        displays = display.objects.all().order_by('id')
-    except:
-        errorMessage = "(讀取錯誤!)"
+
+    displays = display.objects.all().order_by('id')
+
     return render(request, 'listall.html', locals())
 
 def index(request):
@@ -48,6 +42,44 @@ def ssd(request):
     
     return render(request, 'ssd.html', locals())
 
+
+def post(request):
+    if request.method =="POST":
+        mess = request.POST['username']
+        messa = request.POST['a']
+        messb = request.POST['b']
+       
+    else:
+        mess="表單資料尚未送出"
+        messa = "表單資料尚未送出"
+        messb = "表單資料尚未送出"
+    return render(request, 'post.html', locals())
+
+
+def html(request):
+    if request.method == "POST":
+        mess = request.POST['username']
+        messa = request.POST['a']
+        messb = request.POST['b']
+
+    else:
+        mess = "表單資料尚未送出"
+        messa = "表單資料尚未送出"
+        messb = "表單資料尚未送出"
+    return render(request, 'ksu_select3en-bug_copy.html', locals())
+
+
+def php(request):
+    if request.method == "POST":
+        mess = request.POST['username']
+        messa = request.POST['a']
+        messb = request.POST['b']
+
+    else:
+        mess = "表單資料尚未送出"
+        messa = "表單資料尚未送出"
+        messb = "表單資料尚未送出"
+    return render(request, 'ksu_select3en-bug_copy.php', locals())
 
 def cpu(request):
 
