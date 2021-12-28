@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!-- 載入靜態檔案 -->
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'home.css' %}">
+        <meta charset="utf-8">
+        <title>電腦報價幫手</title>
+        <link href="css/home.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="center"> 
+            <div class = "h1">
+				<a href="/" target="_self"  style="text-decoration:none" title="電腦報價幫手">電腦報價幫手</a>
+			</div>
+            <form name="input" action="XXX" method="get">
+                <div class="search">
+                    <input type="text" name="name" size="100%">
+                    <input type="submit" value="搜尋">
+                </div>
+            </form>
+			<div class="but">
+				<div class="login">
+					<input type="button" value="Log In">
+				</div>
+			    <div class="signup">
+				<input type="button" value="Sign Up">
+				</div>
+			</div>
+		</div>
+        <hr/>
+        
+          <div class="list">
+            <ul>
+                <li><a href="cpu.html">CPU</a></li>
+                <li><a href="MB.html">主機板</a></li>
+                <li><a href="/ssd">SSD</a></li>
+                <li><a href="hdd.html">HDD</a></li>
+                <li><a href="VGA.html">顯示卡</a></li>
+                <li><a href="Memory.html">記憶體</a></li>
+                <li><a href="Power.html">電源供應器</a></li>
+                <li><a href="chassis.html">機殼</a></li>
+            </ul>
+		</div>
+        <hr/>
+		<div class="tab">
+            <table class="hot">
+              <tr>
+                <th bgcolor="#6C6C6C"><font size="5">熱門商品</font></th>
+			  </tr>
+            </table>
+		    <table class="hat">
+                
+                
+				<th><a href="https://24h.pchome.com.tw/prod/DHAS4N-A900B7V2B"><img src="{% static 'images/3.jpg' %}">
+				<h5><a herf="https://24h.pchome.com.tw/prod/DHAS4N-A900B7V2B">ASUS ROG Zephyrus G14 GA401QM-0032E5900HS 日蝕灰(R9-5900HS/16+16G/RTX3060-6G/1T PCIe/W10/WQHD)</a></h5>
+				</th>
+				<th><a href="https://24h.pchome.com.tw/prod/DHAS4N-A900B7V2B"><img src="{% static 'images/3.jpg' %}"  alt="ASUS ROG Zephyrus G14 GA401QM-0032E5900HS 日蝕灰(R9-5900HS/16+16G/RTX3060-6G/1T PCIe/W10/WQHD)" title="ASUS ROG Zephyrus G14 GA401QM-0032E5900HS 日蝕灰(R9-5900HS/16+16G/RTX3060-6G/1T PCIe/W10/WQHD)"></a>
+				<h5><a herf="https://24h.pchome.com.tw/prod/DHAS4N-A900B7V2B">ASUS ROG Zephyrus G14 GA401QM-0032E5900HS 日蝕灰(R9-5900HS/16+16G/RTX3060-6G/1T PCIe/W10/WQHD)</a></h5>
+				</th>
+				<th><a href="https://24h.pchome.com.tw/prod/DHAS4N-A900B7V2B"><img src="{% static 'images/3.jpg' %}"  alt="ASUS ROG Zephyrus G14 GA401QM-0032E5900HS 日蝕灰(R9-5900HS/16+16G/RTX3060-6G/1T PCIe/W10/WQHD)" title="ASUS ROG Zephyrus G14 GA401QM-0032E5900HS 日蝕灰(R9-5900HS/16+16G/RTX3060-6G/1T PCIe/W10/WQHD)"></a>
+				<h5><a herf="https://24h.pchome.com.tw/prod/DHAS4N-A900B7V2B">ASUS ROG Zephyrus G14 GA401QM-0032E5900HS 日蝕灰(R9-5900HS/16+16G/RTX3060-6G/1T PCIe/W10/WQHD)</a></h5>
+				</th>
+				<th><a href="https://24h.pchome.com.tw/prod/DHAS4N-A900B7V2B"><img src="{% static 'images/3.jpg' %}"  alt="ASUS ROG Zephyrus G14 GA401QM-0032E5900HS 日蝕灰(R9-5900HS/16+16G/RTX3060-6G/1T PCIe/W10/WQHD)" title="ASUS ROG Zephyrus G14 GA401QM-0032E5900HS 日蝕灰(R9-5900HS/16+16G/RTX3060-6G/1T PCIe/W10/WQHD)"></a>
+				<h5><a herf="https://24h.pchome.com.tw/prod/DHAS4N-A900B7V2B">ASUS ROG Zephyrus G14 GA401QM-0032E5900HS 日蝕灰(R9-5900HS/16+16G/RTX3060-6G/1T PCIe/W10/WQHD)</a></h5>
+				</th>
+		    </table>
+		</div>
+    </body>
+</html>

@@ -14,7 +14,7 @@
 	}
 
 	function pushMsg(pCPU, PMemory, Ppower, PSSD, Pgpu) {
-		if (pCPU == '' || PMemory == '' || Ppower == '' || PSSD == '' || Pgpu == '') {  //資料檢查
+		if (pCPU == '請選擇CPU' || PMemory == '請選擇記憶體' || Ppower == '請選擇電源供應器' || PSSD == '請選擇固態硬碟' || Pgpu == '請選擇顯示卡') {  //資料檢查
 			alert('每個項目都必須選擇！');
 			return;
 		}
@@ -59,7 +59,7 @@
 					<option value="Intel Core i5-11400F" >Intel Core i5-11400F</option>
 					<option value="Intel Core i9-12900K" >Intel Core i9-12900K</option>
 					<option value="Intel Core i7-12700K" >Intel Core i7-12700K</option>
-					<option disabled>----------------------------------</option>
+					<option disabled>-------------------------------</option>
 				</optgroup>
 				<optgroup label="AMD">
 					<option value="AMD Ryzen 9-5950X 3.4GHz 16核心 中央處理器">AMD Ryzen 9-5950X 3.4GHz 16核心 中央處理器</option>
@@ -76,13 +76,13 @@
 					<option value="Corsair 海盜船 VENGEANCE® RGB PRO DDR4 3200 32GB(16Gx2)桌上型記憶體-黑色">Corsair 海盜船 VENGEANCE® RGB PRO DDR4 3200 32GB(16Gx2)桌上型記憶體-黑色</option>
 					<option value="Corsair 海盜船 VENGEANCE RGB PRO SL DDR4 3600 32GB(16Gx2)桌上型記憶體-黑色">Corsair 海盜船 VENGEANCE RGB PRO SL DDR4 3600 32GB(16Gx2)桌上型記憶體-黑色</option>
 					<option value="Corsair 海盜船 VENGEANCE® LPX DDR4 2666 8GB 桌上型記憶體">Corsair 海盜船 VENGEANCE® LPX DDR4 2666 8GB 桌上型記憶體</option>
-					<option disabled>----------------------------------</option>
+					<option disabled>-------------------------------</option>
 				</optgroup>
 				<optgroup label="ADATA 威剛">
 					<option value="威剛 XPG DDR4 3200 8GB*2 RGB 幾何幻光桌上型記憶體(迷戀白)">威剛 XPG DDR4 3200 8GB*2 RGB 幾何幻光桌上型記憶體(迷戀白)</option>
 					<option value="威剛 XPG DDR4- 3200 D50 (RGB) 16GB*2 超頻桌上型記憶體(AX4U3200716G16A-DT50)">威剛 XPG DDR4- 3200 D50 (RGB) 16GB*2 超頻桌上型記憶體(AX4U3200716G16A-DT50)</option>
 					<option value="威剛 XPG DDR4 3200 D10 16GB*2 超頻桌上型記憶體 (黑色散熱片)">威剛 XPG DDR4 3200 D10 16GB*2 超頻桌上型記憶體 (黑色散熱片)</option>
-					<option disabled>----------------------------------</option>
+					<option disabled>-------------------------------</option>
 				</optgroup>
 				<optgroup label="ANACOMDA 巨蟒">
 					<option value="ANACOMDA 巨蟒 DDR4 3200 16GB 超頻桌上型記憶體">ANACOMDA 巨蟒 DDR4 3200 16GB 超頻桌上型記憶體</option>
@@ -99,7 +99,7 @@
 					<option value="ASUS 華碩 ROG STRIX 750G 750W金牌 電源供應器">ASUS 華碩 ROG STRIX 750G 750W金牌 電源供應器</option>
 					<option value="ASUS 華碩 ROG STRIX 850G 850W White 白色限量版 金牌 電源供應器">ASUS 華碩 ROG STRIX 850G 850W White 白色限量版 金牌 電源供應器</option>
 					<option value="ASUS 華碩 ROG STRIX 850G 850W 金牌 電源供應器">ASUS 華碩 ROG STRIX 850G 850W 金牌 電源供應器</option>
-					<option disabled>----------------------------------</option>
+					<option disabled>-------------------------------</option>
 				</optgroup>
 				<optgroup label="CORSAIR海盜船">
 					<option value="CORSAIR海盜船 RM1000X 80Plus金牌 1000W電源供應器">CORSAIR海盜船 RM1000X 80Plus金牌 1000W電源供應器</option>
@@ -116,7 +116,7 @@
 					<option value="ADATA威剛XPG GAMMIX S70 BLADE 1TB Gen4x4 PCIe SSD固態硬碟">ADATA威剛XPG GAMMIX S70 BLADE 1TB Gen4x4 PCIe SSD固態硬碟</option>
 					<option value="ADATA威剛XPG GAMMIX S70 BLADE 2TB Gen4x4 PCIe SSD固態硬碟">ADATA威剛XPG GAMMIX S70 BLADE 2TB Gen4x4 PCIe SSD固態硬碟</option>
 					<option value="ADATA威剛 XPG S40G RGB 512G M.2 2280 PCIe SSD固態硬碟">ADATA威剛 XPG S40G RGB 512G M.2 2280 PCIe SSD固態硬碟</option>
-					<option disabled>----------------------------------</option>
+					<option disabled>-------------------------------</option>
 				</optgroup>
 				<optgroup label="CORSAIR海盜船">
 					<option value="CORSAIR海盜船 Force Series MP600 500GB Gen4x4 PCIe SSD固態硬碟">CORSAIR海盜船 Force Series MP600 500GB Gen4x4 PCIe SSD固態硬碟</option>
@@ -131,12 +131,12 @@
 				<optgroup label="NVIDIA">
 					<option selected>請選擇顯示卡</option>
 					<option value="NVIDIA GeForce RTX 3080 Founders Edition 顯示卡">NVIDIA GeForce RTX 3080 Founders Edition 顯示卡</option>
-					<option disabled>----------------------------------</option>
+					<option disabled>-------------------------------</option>
 				</optgroup>
 				<optgroup label="MSI 微星">
 					<option value="微星 GeForce RTX 3080 SUPRIM X 10G LHR 顯示卡+H510M BOMBER+P240 水冷">微星 GeForce RTX 3080 SUPRIM X 10G LHR 顯示卡+H510M BOMBER+P240 水冷</option>
 					<option value="微星MSI GeForce RTX 3060 Ti 8G VENTUS 2X OC PCI-E顯示卡">微星MSI GeForce RTX 3060 Ti 8G VENTUS 2X OC PCI-E顯示卡</option>
-					<option disabled>----------------------------------</option>
+					<option disabled>-------------------------------</option>
 				</optgroup>
 				<optgroup label="GIGABYTE 技嘉">
 					<option value="技嘉 GeForce RTX™ 3070 GAMING OC 8G (rev. 2.0) 顯示卡+X570S+B560M">技嘉 GeForce RTX™ 3070 GAMING OC 8G (rev. 2.0) 顯示卡+X570S+B560M</option>

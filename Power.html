@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!-- 載入靜態檔案 -->
+{% load static %}
+<html>
+
+<head>
+	<link rel="stylesheet" href="{% static 'Power.css' %}">
+	<meta charset="utf-8">
+	<title>電腦報價幫手</title>
+</head>
+
+    <body>
+        <div class="center"> 
+            <div class = "h1">
+				<a href="index.html" target="_self"  style="text-decoration:none" title="電腦報價幫手">電腦報價幫手</a>
+			</div>
+            <form name="input" action="XXX" method="get">
+                <div class="search">
+                    <input type="text" name="name" size="100%">
+                    <input type="submit" value="搜尋">
+                </div>
+            </form>
+			<div class="but">
+				<div class="login">
+					<input type="button" value="Log In">
+				</div>
+			<div class="signup">
+				<input type="button" value="Sign Up">
+				</div>
+			</div>
+		</div>
+        <hr/>
+        
+          <div class="list">
+            <ul>
+                <li><a href="cpu.html">CPU</a></li>
+                <li><a href="MB.html">主機板</a></li>
+                <li><a href="ssd.html">SSD</a></li>
+                <li><a href="hdd.html">HDD</a></li>
+                <li><a href="VGA.html">顯示卡</a></li>
+                <li><a href="Memory.html">記憶體</a></li>
+                <li><a href="Power.html">電源供應器</a></li>
+                <li><a href="chassis.html">機殼</a></li>
+            </ul>
+          </div>
+        <hr/>
+		<div class="cm">
+            <div id="filterbar" class="bar-spinbtn">
+              價格範圍:
+                <input id="minprice" type="text" value="">
+                ~
+                <input id="minprice1" type="text" value="">
+                <input id="btn-prc" type="button" value="搜尋">
+            </div>
+        </div>
+		<div class="cmr">
+			選擇品牌:
+			<select name="catordog">
+			  <option>品牌</option>
+			  <optgroup label="品牌">
+                <option>ACEPOWER 翰欣</option>
+			    <option>ASUS 華碩</option>	
+			    <option>Antec 安鈦克</option>
+				<option>Be quiet！</option>
+				<option>CoolerMaster 酷碼</option>
+				<option>CORSAIR 海盜船</option>
+				<option>COUGAR 美洲獅</option>
+				<option>ENERMAX 保銳</option>
+				<option>EVGA 艾維克</option>
+				<option>FSP 全漢</option>
+				<option>GIGABYTE 技嘉</option>
+				<option>MSI 微星</option>
+				<option>Mavoly 松聖</option>
+				<option>MONTECH 君主</option>
+				<option>NZXT 恩傑</option>  
+				<option>Snake 蛇吞象</option>
+				<option>SeaSonic 海韻</option>
+				<option>SUPERFLOWER 振華</option>  
+				<option>Xigmatek 富鈞</option>  
+				<option>SilverStone 銀欣</option>
+				<option>Thermaltake 曜越</option>
+				<option>其他電源品牌</option>
+              </optgroup>
+			</select>
+		</div>
+		<div class="cmrr">
+			選擇瓦數:
+			<select name="dogorcat">
+			  <option>瓦數</option>
+			  <optgroup label="瓦數快選">
+			    <option>400W 以下</option> 
+				<option>400W ─ 450W</option>
+				<option>500W ─ 550W</option> 
+				<option>600W ─ 650W</option>
+				<option>700W ─ 850W</option>
+				<option>1000W 以上</option>   
+			  </optgroup>
+			</select>
+		</div>
+		<br/>
+            <table width="100%" height="508" border="1">
+			<tbody>
+              <tr class="title_1">
+                <th width="20%" height="50" bgcolor="#fffcec" scope="col"><font size="5">圖片</font></th>
+				<th width="50%" bgcolor="#fffcec" scope="col"><font size="5">規格</font></th>
+                <th width="15%" bgcolor="#fffcec" scope="col"><font size="5">價錢</font></th>
+				<th width="15%" bgcolor="#fffcec" scope="col"><font size="5">前往購買</font></th>
+			  </tr>
+			  <tr>
+			    <td bgcolor="#fffcec"><div align="center"><img src="images/8.jpg" width="237" height="136" alt=""/></div></td>
+				<td bgcolor="#fffcec"><h5 class="pron_name">海顥 FOCUS FOCUS GX-850 金牌 / 全模 (編號:SSR-850FX )</h5>
+				<span class="nick">"海顥 FOCUS FOCUS GX-850 金牌 / 全模 (編號:SSR-850FX ) 10年原廠保固 全模組化線材輸出 80 plus 金牌認證 atx 12 v s3fc - 無風扇至30 %負載 鍍金高電流端子 無"</span></td>
+                <td bgcolor="#fffcec"><div class="Price" align="center">$4090</div></td>
+				<td bgcolor="#fffcec"><div align="center"><input type="button" value="前往購買" onclick="window.open('https://24h.pchome.com.tw/prod/DSAZ1I-A900B6KYH')"></div></td>
+			  </tr>
+			  <tr>
+			    <td bgcolor="#fffcec"><div align="center"><img src="images/8.jpg" width="237" height="136" alt=""/></div></td>
+				<td bgcolor="#fffcec"><h5 class="pron_name">海顥 FOCUS FOCUS GX-850 金牌 / 全模 (編號:SSR-850FX )</h5>
+				<span class="nick">"海顥 FOCUS FOCUS GX-850 金牌 / 全模 (編號:SSR-850FX ) 10年原廠保固 全模組化線材輸出 80 plus 金牌認證 atx 12 v s3fc - 無風扇至30 %負載 鍍金高電流端子 無"</span></td>
+                <td bgcolor="#fffcec"><div class="Price" align="center">$4090</div></td>
+				<td bgcolor="#fffcec"><div align="center"><input type="button" value="前往購買" onclick="window.open('https://24h.pchome.com.tw/prod/DSAZ1I-A900B6KYH')"></div></td>
+			  </tr>
+			  <tr>
+			    <td bgcolor="#fffcec"><div align="center"><img src="images/8.jpg" width="237" height="136" alt=""/></div></td>
+				<td bgcolor="#fffcec"><h5 class="pron_name">海顥 FOCUS FOCUS GX-850 金牌 / 全模 (編號:SSR-850FX )</h5>
+				<span class="nick">"海顥 FOCUS FOCUS GX-850 金牌 / 全模 (編號:SSR-850FX ) 10年原廠保固 全模組化線材輸出 80 plus 金牌認證 atx 12 v s3fc - 無風扇至30 %負載 鍍金高電流端子 無"</span></td>
+                <td bgcolor="#fffcec"><div class="Price" align="center">$4090</div></td>
+				<td bgcolor="#fffcec"><div align="center"><input type="button" value="前往購買" onclick="window.open('https://24h.pchome.com.tw/prod/DSAZ1I-A900B6KYH')"></div></td>
+			  </tr>
+		      <tr>
+			    <td bgcolor="#fffcec"><div align="center"><img src="images/8.jpg" width="237" height="136" alt=""/></div></td>
+				<td bgcolor="#fffcec"><h5 class="pron_name">海顥 FOCUS FOCUS GX-850 金牌 / 全模 (編號:SSR-850FX )</h5>
+				<span class="nick">"海顥 FOCUS FOCUS GX-850 金牌 / 全模 (編號:SSR-850FX ) 10年原廠保固 全模組化線材輸出 80 plus 金牌認證 atx 12 v s3fc - 無風扇至30 %負載 鍍金高電流端子 無"</span></td>
+                <td bgcolor="#fffcec"><div class="Price" align="center">$4090</div></td>
+				<td bgcolor="#fffcec"><div align="center"><input type="button" value="前往購買" onclick="window.open('https://24h.pchome.com.tw/prod/DSAZ1I-A900B6KYH')"></div></td>
+			  </tr>
+			  <tr>
+			    <td bgcolor="#fffcec"><div align="center"><img src="images/8.jpg" width="237" height="136" alt=""/></div></td>
+				<td bgcolor="#fffcec"><h5 class="pron_name">海顥 FOCUS FOCUS GX-850 金牌 / 全模 (編號:SSR-850FX )</h5>
+				<span class="nick">"海顥 FOCUS FOCUS GX-850 金牌 / 全模 (編號:SSR-850FX ) 10年原廠保固 全模組化線材輸出 80 plus 金牌認證 atx 12 v s3fc - 無風扇至30 %負載 鍍金高電流端子 無"</span></td>
+                <td bgcolor="#fffcec"><div class="Price" align="center">$4090</div></td>
+				<td bgcolor="#fffcec"><div align="center"><input type="button" value="前往購買" onclick="window.open('https://24h.pchome.com.tw/prod/DSAZ1I-A900B6KYH')"></div></td>
+			  </tr>
+			  <tr>
+			    <td bgcolor="#fffcec"><div align="center"><img src="images/8.jpg" width="237" height="136" alt=""/></div></td>
+				<td bgcolor="#fffcec"><h5 class="pron_name">海顥 FOCUS FOCUS GX-850 金牌 / 全模 (編號:SSR-850FX )</h5>
+				<span class="nick">"海顥 FOCUS FOCUS GX-850 金牌 / 全模 (編號:SSR-850FX ) 10年原廠保固 全模組化線材輸出 80 plus 金牌認證 atx 12 v s3fc - 無風扇至30 %負載 鍍金高電流端子 無"</span></td>
+                <td bgcolor="#fffcec"><div class="Price" align="center">$4090</div></td>
+				<td bgcolor="#fffcec"><div align="center"><input type="button" value="前往購買" onclick="window.open('https://24h.pchome.com.tw/prod/DSAZ1I-A900B6KYH')"></div></td>
+			  </tr>
+			</tbody>
+			</table>
+
+    </body>
+</html>

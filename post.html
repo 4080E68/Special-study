@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>表單傳送測試</title>
+</head>
+
+<body>
+<form action="/post/" method="post" name="form1">{% csrf_token %}
+    {% csrf_token %}
+    <div>請輸入姓名:<input type="text" name="username" /><br/>
+    <div>請輸入姓名:<input type="text" name="a" /><br />
+    <div>請輸入姓名:<input type="text" name="b" /><br />
+    
+    <input type="submit" value="送出資料" /></div>
+    <div>接收到的資料"{{mess}}
+    <div>接收到的資料"{{messa}}
+    <div>接收到的資料"{{messb}}
+       
+    </div>
+</from>
+</body>
+</html>

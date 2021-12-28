@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>1217測試</title>
+</head>
+
+ <body>
+    <h2>讀取display資料表 {{errormessage}}</h2>
+    <table border="1" cellpadding="0" cellspzcing="0">
+        <th>id</th><th>image</th><th>name</th><th>price</th><th>commodity</th><th>url_list</th>
+        {% for aaa in displays %}
+            <tr align="center">
+                <td>{{aaa.id}}</td>
+                <td><img src="{{aaa.pc_images}}" width="200" height="200"></td>
+                <td>{{aaa.name}}</td>
+                <td>{{aaa.price}}</td>
+                <td>{{aaa.commodity}}</td>
+                <td><input type="button" value="購買連結" onclick="window.open('{{aaa.url_list}}')"></td>
+            </tr>
+        {% endfor %}
+        
+    </table>
+ </body>
+</html>
