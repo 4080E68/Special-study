@@ -1,101 +1,76 @@
 from typing import Text
 #from django.db.models.fields import _ErrorMessagesToOverride, TextField
-from django.shortcuts import render
+from django.shortcuts import *
 from django.conf import settings
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbidden
 from django.views.decorators.csrf import csrf_exempt
-from func3api.models import *
+from func3api.models import display,cpu,ssd
 import subprocess
 from linebot import LineBotApi, WebhookParser
 from linebot.exceptions import InvalidSignatureError, LineBotApiError
 from linebot.models import *
 from module import func
 from urllib.parse import parse_qsl
-import requests
 import web_crawler
+from .filters import cpuFilter
 
 line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
 parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
 HEROKU_APP_URL = ' https://topiclinebot.herokuapp.com/'
+"""
 
 
+    
 def listone(request):
     unit = display.objects.get(id=8)
     return render(request,'listone.html',locals())
 
 def listall(request):
-
-    displays = display.objects.all().order_by('id')
-
+    cpu_all = cpu.objects.all()
     return render(request, 'listall.html', locals())
 
-def index(request):
-    try:
-        unit = display.objects.get(id=3)
-        displays = display.objects.all().order_by('id')
-    except:
-        errorMessage = "(讀取錯誤!)"
-    return render(request, 'index.html', locals())
 
-
-def ssd(request):
-    
+def ssd1(request):
+    ssd_all = ssd.objects.all()
     return render(request, 'ssd.html', locals())
 
+"""
+def liff(request):
+    cpus = cpu.objects.get(id=8)
 
-def post(request):
-    if request.method =="POST":
-        mess = request.POST['username']
-        messa = request.POST['a']
-        messb = request.POST['b']
-       
-    else:
-        mess="表單資料尚未送出"
-        messa = "表單資料尚未送出"
-        messb = "表單資料尚未送出"
-    return render(request, 'post.html', locals())
-
-
-def html(request):
+    return render(request, 'index_form.html', locals())
+def cpu1(request):
+    cpus = cpu.objects.all().order_by('-price')
+    aFilter = cpuFilter(queryset=cpus)
     if request.method == "POST":
-        mess = request.POST['username']
-        messa = request.POST['a']
-        messb = request.POST['b']
+            aFilter = cpuFilter(request.POST, queryset=cpus)
 
-    else:
-        mess = "表單資料尚未送出"
-        messa = "表單資料尚未送出"
-        messb = "表單資料尚未送出"
-    return render(request, 'ksu_select3en-bug_copy.html', locals())
+    context = {
+        'aFilter': aFilter
+    }
+
+    return render(request, 'cpu.html', context)
 
 
-def php(request):
+def index(request):
+    cpus = cpu.objects.all().order_by('-price')
+    aFilter = cpuFilter(queryset=cpus)
     if request.method == "POST":
-        mess = request.POST['username']
-        messa = request.POST['a']
-        messb = request.POST['b']
+        aFilter = cpuFilter(request.POST, queryset=cpus)
 
-    else:
-        mess = "表單資料尚未送出"
-        messa = "表單資料尚未送出"
-        messb = "表單資料尚未送出"
-    return render(request, 'ksu_select3en-bug_copy.php', locals())
+    context = {
+        'aFilter': aFilter
+    }
 
-def cpu(request):
-
-    return render(request, 'cpu.html', locals())
+    return render(request, 'index1.html', context)
 
 @csrf_exempt
 def callback(request):
     if request.method == 'POST':
         #先設定一個要回傳的message空集合
-        message = []
-        keyword = []
+
         signature = request.META['HTTP_X_LINE_SIGNATURE']
         body = request.body.decode('utf-8')
-
-        #在這裡將body寫入機器人回傳的訊息中，可以更容易看出你收到的webhook長怎樣#
-        message.append(TextSendMessage(text=str(body)))
 
         try:
             events = parser.parse(body, signature)
@@ -105,16 +80,15 @@ def callback(request):
         except LineBotApiError:
             return HttpResponseBadRequest()
 
-        try:
+        
 
-            for event in events:
-                if isinstance(event, MessageEvent):
+        for event in events:
+                if isinstance(event, MessageEvent):  # 如果有訊息事件
                     msg = event.message.text
 
                 if msg[:3] == '###' and len(msg) > 3:
                         func.manageForm(event, msg)
                 
-
                 if 'pc+' in msg:
                         keyword = msg.split('+')[1]
                         message = web_crawler.youtube_vedio_parser(keyword)
@@ -130,9 +104,10 @@ def callback(request):
                                 longitude=120.25310442615711  # 經度
                             )
                         )
-        except:
-            if isinstance(event, MessageEvent):
-                    display_name = display.objects.filter(name=event.message.text)
+                elif isinstance(event, MessageEvent):  # 如果有訊息事件
+                    display_name = display.objects.filter(
+                        name=event.message.text)
+                    
                     for displays in display_name:
                         flex_message = FlexSendMessage(
                             alt_text='搜尋結果',
@@ -146,24 +121,23 @@ def callback(request):
                                     "aspectMode": "cover",
                                     "action": {
                                         "type": "uri",
-                                        "uri": displays.pc_images
+                                        "uri": displays.url_list
                                     }
                                 },
                                 "body": {
                                     "type": "box",
                                     "layout": "vertical",
                                     "spacing": "md",
-                                    
+                                    "action": {
+                                        "type": "uri",
+                                        "uri": "https://linecorp.com"
+                                    },
                                     "contents": [
                                         {
                                             "type": "text",
-                                            "text": "價格:"+displays.price,
-                                            "size": "xl",
+                                            "text": "價格:"+str(displays.price),
+                                            "size": "xxl",
                                             "weight": "bold"
-                                        },
-                                        {
-                                            "type": "separator",
-                                            "color": "#000000"
                                         },
                                         {
                                             "type": "box",
@@ -183,25 +157,19 @@ def callback(request):
                                                             "text": "詳細資訊",
                                                             "weight": "bold",
                                                             "margin": "sm",
-                                                            "flex": 0
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "type": "box",
-                                                    "layout": "vertical",
-                                                    "contents": [
-                                                        {
-                                                            "type": "text",
-                                                            "wrap": True,
-                                                            "align": "start",
-                                                            "offsetStart": "xxl",
-                                                            "size": "xs",
-                                                            "text": displays.commodity
+                                                            "flex": 0,
+                                                            "size": "lg"
                                                         }
                                                     ]
                                                 }
                                             ]
+                                        },
+                                        {
+                                            "type": "text",
+                                            "text": displays.commodity,
+                                            "wrap": True,
+                                            "color": "#000000",
+                                            "size": "xxs"
                                         }
                                     ]
                                 },
@@ -209,6 +177,7 @@ def callback(request):
                                     "type": "box",
                                     "layout": "vertical",
                                     "contents": [
+                                        
                                         {
                                             "type": "button",
                                             "style": "primary",
@@ -222,18 +191,14 @@ def callback(request):
                                     ]
                                 }
                             }
-                            
+
 
                         )
 
-                        content = ''  # 回覆使用者的內容
-                        content += "價格:"+displays.price + '\n' + \
-                        displays.commodity + '\n' + displays.url_list + '\n'+displays.pc_images
-                            
-
-                        line_bot_api.reply_message(  # 回覆訊息
-                            event.reply_token, flex_message
-                        )
+                    line_bot_api.reply_message(  # 回覆訊息
+                        event.reply_token,flex_message
+                    )
+        
 
             
 
@@ -242,14 +207,14 @@ def callback(request):
                
 
     
-        if isinstance(event, PostbackEvent):  #PostbackTemplateAction觸發此事件
+        """if isinstance(event, PostbackEvent):  #PostbackTemplateAction觸發此事件
                 backdata = dict(parse_qsl(event.postback.data))  #取得Postback資料
                 if backdata.get('action') == 'buy':
                     func.sendBack_buy(event, backdata)
                 #elif backdata.get('action') == 'sell':
                 #    func.sendBack_sell(event, backdata)
                 elif backdata.get('action') == 'sell':
-                    func.sendData_sell(event, backdata)
+                    func.sendData_sell(event, backdata)"""
 
         return HttpResponse()
 

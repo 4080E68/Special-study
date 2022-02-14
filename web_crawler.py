@@ -15,14 +15,14 @@ def youtube_vedio_parser(keyword):
     connection = mysql.connector.connect(host='localhost',
                                          port='3306',
                                          user='root',
-                                         password='',
-                                         database='1228',)
+                                         password='0000',
+                                         database='test',)
 
     cursor = connection.cursor()
     try:
 
         #建立url跟目錄
-        url = 'https://ecshweb.pchome.com.tw/search/v3.3/?q=AMD&scope=all&sortParm=sale&sortOrder=dc&cateId=DRAI'
+        url = 'https://ecshweb.pchome.com.tw/search/v3.3/?q=WD%E9%BB%91%E6%A8%99&scope=all&sortParm=sale&sortOrder=dc&cateId=DRAH'
         #開啟Chrome瀏覽器
         #driver = webdriver.Chrome(options=chromeOption)
         driver = webdriver.Chrome()
@@ -47,7 +47,7 @@ def youtube_vedio_parser(keyword):
         driver.refresh()  # 刷新網頁
 
         #滾動視窗捲軸，使瀏覽器獲取影片縮圖資訊
-        for i in range(130):
+        for i in range(50):
             y_position = i*200
             driver.execute_script(f'window.scrollTo(0, {y_position});')
             time.sleep(0.1)
@@ -116,11 +116,11 @@ def youtube_vedio_parser(keyword):
         print("標題長度", len(pc_title_list))
 
 
-        for i in range(101):
+        for i in range(500):
             try:
-                sql = 'INSERT INTO `1228test`.`func3api_cpu` (`id`,`name`, `price`, `Commodity`, `url_list`, `pc_images`,`vendor`) VALUES (%s,%s, %s, %s, %s, %s, %s);'
+                sql = 'INSERT INTO `test`.`func3api_ssd` (`id`,`name`, `price`, `Commodity`, `url_list`, `pc_images`,`vendor`) VALUES (%s,%s, %s, %s, %s, %s, %s);'
                 cursor.execute(
-                    sql, (i+100, pc_title_list[i], price_list[i], Commodity_list[i], pc_url_list[i], pc_images[i],"AMD"))
+                    sql, (i+108, pc_title_list[i], price_list[i], Commodity_list[i], pc_url_list[i], pc_images[i], "WD黑標"))
                 connection.commit()
             except:
                 connection.rollback()

@@ -10,7 +10,7 @@ class display(models.Model):  # 設計LINE Bot所需要使用的資料表(Table)
     pc_images = models.CharField(max_length=3000, default="")  # 圖片網址
 
 
-class cpu(models.Model):  # 設計LINE Bot所需要使用的資料表(Table)欄位
+class cpu (models.Model):  # 設計LINE Bot所需要使用的資料表(Table)欄位
     vendor = models.CharField(max_length=100, default="")  # 名稱
     name = models.CharField(max_length=100, default="")  # 名稱
     price = models.IntegerField(max_length=500, default="")  # 價格

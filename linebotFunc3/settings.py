@@ -27,7 +27,7 @@ LINE_CHANNEL_SECRET = 'a99b23619871030a70f4dccc6c1548fb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['toadx.herokuapp.com/']
 
 
 # Application definition
@@ -39,18 +39,21 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
+    'django_filters',
     'func3api'
     
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    #'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'linebotFunc3.urls'
@@ -80,9 +83,9 @@ WSGI_APPLICATION = 'linebotFunc3.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  
-        'NAME': '1228test',  # 資料庫名稱
+        'NAME': 'test',  # 資料庫名稱
         'USER': 'root',  # 資料庫帳號
-        'PASSWORD': '',  # 資料庫密碼
+        'PASSWORD':'0000',  # 資料庫密碼
         'HOST': 'localhost',  # Server(伺服器)位址
         'PORT': '3306'  # Port號
     }

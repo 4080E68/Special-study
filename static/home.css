@@ -1,10 +1,10 @@
 body{
-    background-image:url('https://static.runoob.com/images/mix/paper.gif');
-    background-color:#cccccc;
+    background-color:#81837a;
 }
-.center{
-    text-align: center;
 
+table{
+	word-wrap: break-word;
+	width:100px;
 }
 .h1{
     color:red;
