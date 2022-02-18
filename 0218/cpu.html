@@ -1,0 +1,73 @@
+
+{% load static %}
+
+<html>
+    <head>
+		<link rel="stylesheet" href="{% static 'cpu.css' %}">
+        <meta charset="utf-8">
+        <title>電腦報價幫手</title>
+    </head>
+
+    <body>
+        <div class="center"> 
+            <div class = "h1">
+				<a href="/" target="_self"  style="text-decoration:none" title="電腦報價幫手">電腦報價幫手</a>
+			</div>
+			<form method='POST' >
+				{% csrf_token %}
+				搜尋：{{ Filter_all.form.name }}
+				<input type="submit" class="btn btn-primary" value="查詢" /><br />
+			</form>
+			<div class="but">
+				<div class="login">
+					<input type="button" value="Log In">
+				</div>
+			<div class="signup">
+				<input type="button" value="Sign Up">
+				</div>
+			</div>
+		</div>
+        <hr/>
+        
+          <div class="list">
+            <ul>
+                <li><a href="/cpu">CPU</a></li>
+                <li><a href="MB.html">主機板</a></li>
+                <li><a href="/ssd">SSD</a></li>
+                <li><a href="hdd.html">HDD</a></li>
+                <li><a href="VGA.html">顯示卡</a></li>
+                <li><a href="Memory.html">記憶體</a></li>
+                <li><a href="Power.html">電源供應器</a></li>
+                <li><a href="chassis.html">機殼</a></li>
+            </ul>
+          </div>
+        <hr/>
+		<form method='POST'>
+			{% csrf_token %}
+			廠商：{{ aFilter.form.vendor }}
+			名稱：{{ aFilter.form.name }}
+			價格：{{ aFilter.form.price }}
+			<input type="submit" class="btn btn-primary" value="查詢" /><br />
+		</form>
+		<table class="table" border="1" cellpadding="0" cellspzcing="0">
+		<th>商品名稱</th>
+		<th>廠商</th>
+		<th>商品圖片</th>
+		
+		<th>詳細資訊</th>
+		<th>價格</th>
+		<th>購買連結</th>
+			{% for cpu in aFilter.qs %}
+			<tr>
+				<td>{{ cpu.name }}</td>
+				<td>{{ cpu.vendor }}</td>
+				<td><img src="{{cpu.pc_images}}" width="150" height="150"></td>
+				<td>{{ cpu.commodity }}</td>
+				<td>{{ cpu.price }}</td>
+				<td><input type="button" value="前往購買" onclick="window.open('{{cpu.url_list}}')"></td>
+			</tr>
+			{% endfor %}
+
+    </body>
+</table>
+</html>
